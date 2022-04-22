@@ -1,0 +1,24 @@
+<html>
+
+<head>
+	<title>Home</title>
+	{% load static %}
+	<link rel='stylesheet' type='text/css' href="{% static 'form_db/stylesheets/style.css' %}">
+</head>
+
+<body>
+
+<form action='home' method='post'>
+	{% csrf_token %}
+	{{form}}	
+	{% if valid == False %}
+		<h2>One of your entries was invalid.</h2>
+	{% elif  valid == True %}
+		<h2>Thanks.</h2>
+	{% endif %}
+		
+	<input type='submit' id='submit' value='submit'>
+</form>
+
+</body>
+</html>
