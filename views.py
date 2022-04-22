@@ -8,7 +8,7 @@ def home(request):
     if request.method == 'POST':
         #if POST request, validate the data 
         form = InfoForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and request.POST['phone'].isdigit():
             valid = True
             #if the form is valid, collect the data, submit to db, and thank the user
             fname=form.cleaned_data['fname']
